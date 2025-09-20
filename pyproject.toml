@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sparke-discord-invite-role-bot"
+version = "0.1.0"
+description = "Discord bot that grants server roles based on invite links."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Sparke Contributors" }
+]
+dependencies = [
+    "discord.py>=2.3.2,<3.0.0"
+]
+keywords = ["discord", "bot", "automation", "invites"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+invite-role-bot = "bot:main"
+
+[tool.setuptools]
+py-modules = ["bot"]
