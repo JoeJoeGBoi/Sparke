@@ -52,6 +52,35 @@ Roles are assigned automatically when new members join using a tracked invite.
 
 ## Development without Docker
 
-If you prefer to run the bot locally, create a Python virtual environment,
-install dependencies from `requirements.txt`, set `DISCORD_TOKEN`, and start
-`python bot.py`.
+If you prefer to run the bot locally, create a Python virtual environment and
+install the package in editable mode:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate  # On Windows use .venv\\Scripts\\Activate.ps1
+pip install --editable .
+```
+
+Set `DISCORD_TOKEN` in your shell and start the console entry point that the
+package exposes:
+
+```bash
+export DISCORD_TOKEN="<your token>"
+invite-role-bot
+```
+
+The legacy workflow of installing from `requirements.txt` and running
+`python bot.py` still works if you prefer not to install the package.
+
+## Building distributable artifacts
+
+To produce a wheel and source distribution, install the `build` tool and run
+
+```bash
+python -m pip install --upgrade build
+python -m build
+```
+
+The resulting artifacts are placed in the `dist/` directory. They can be copied
+to another machine and installed with `pip install <artifact>` to reproduce a
+ready-to-run bot without cloning the repository.
